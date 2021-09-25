@@ -40,6 +40,8 @@ PermaOptionsPresets:
 	permaoptionspreset Preset_BingoName, (EXP_FORMULA_BLACKWHITE << EXP_FORMULA_SHIFT) | BETTER_MARTS_VAL | NERF_PEWTER_GYM_VAL | ALL_MOVES_SHAKE_VAL, SHORT_DELAYS_VAL | BACKWARDS_BOAT_VAL | BETTER_GAME_CORNER_VAL | (SELECTTO_BIKE << SELECTTO_SHIFT) | EASY_SAFARI_VAL, 0, EARLY_VICTORY_ROAD_VAL | B_FAST_MOVEMENT_VAL | KEEP_WARDEN_CANDY_VAL | DEX_AREA_BEEP_VAL, 0
 	; 251
 	permaoptionspreset Preset_CEAName, (EXP_FORMULA_BLACKWHITE << EXP_FORMULA_SHIFT) | BETTER_MARTS_VAL | NERF_PEWTER_GYM_VAL | ALL_MOVES_SHAKE_VAL, SHORT_DELAYS_VAL | BACKWARDS_BOAT_VAL | BETTER_GAME_CORNER_VAL | (SELECTTO_BIKE << SELECTTO_SHIFT) | EASY_SAFARI_VAL, (RACEGOAL_151DEX << RACEGOAL_SHIFT), EARLY_VICTORY_ROAD_VAL | B_FAST_MOVEMENT_VAL | KEEP_WARDEN_CANDY_VAL | DEX_AREA_BEEP_VAL, 0
+	; Death Mode
+	permaoptionspreset Preset_DeathModeName, (EXP_FORMULA_NO_EXP << EXP_FORMULA_SHIFT) | (SPINNERHELL_NORMAL_SPEED << SPINNERS_SHIFT), 0, 0, 0, PRIZE_MONEY_VAL | HEART_FAILURES_VAL
 PermaOptionsPresetsEnd:
 
 Preset_VanillaName:
@@ -48,6 +50,8 @@ Preset_BingoName:
 	db "BINGO   @"
 Preset_CEAName:
 	db "151 RACE@"
+Preset_DeathModeName:
+	db "DEATH   @"
 
 Options_Preset::
 	ld hl, wOptionsMenuPreset
@@ -136,7 +140,7 @@ Options_Name:
 
 .NotSetString
 	db "NOT SET@"
-	
+
 Options_RivalName:
 	and A_BUTTON
 	jr z, .GetText
@@ -163,7 +167,7 @@ Options_RivalName:
 
 .NotSetString
 	db "NOT SET@"
-	
+
 Options_StartIn::
 	ldafarbyte KeyItemRandoActive
 	and a
@@ -181,10 +185,10 @@ Options_StartIn::
 .normal
 	ld hl, .Data
 	jp Options_Multichoice
-	
+
 .Data:
 	multichoiceoptiondata STARTIN_ADDRESS, STARTIN_SHIFT, STARTIN_SIZE, 9, NUM_OPTIONS, .Strings
-	
+
 .Strings:
 	dw .Normal
 	dw .Eevee
@@ -205,14 +209,14 @@ Options_StartIn::
 	db "TOWER @"
 .KIROn:
 	db "(KIR ON)@"
-	
+
 Options_RaceGoal:: ; 11
 	ld hl, .Data
 	jp Options_Multichoice
-	
+
 .Data:
 	multichoiceoptiondata RACEGOAL_ADDRESS, RACEGOAL_SHIFT, RACEGOAL_SIZE, 11, NUM_OPTIONS, .Strings
-	
+
 .Strings:
 	dw .Manual
 	dw .E4
@@ -225,27 +229,27 @@ Options_RaceGoal:: ; 11
 	db "ELITE 4@"
 .FullDex:
 	db "151 DEX@"
-	
+
 Options_Spinners:
 	ld hl, .Data
 	jp Options_Multichoice
-	
+
 .Data:
 	multichoiceoptiondata SPINNERS_ADDRESS, SPINNERS_SHIFT, SPINNERS_SIZE, 13, NUM_OPTIONS, .Strings
-	
+
 .Strings:
 	dw .Normal
 	dw .Hell
 	dw .Why
 .Strings_End:
-	
+
 .Normal
 	db "NORMAL@"
 .Hell
 	db "HELL  @"
 .Why
 	db "WHY   @"
-	
+
 Options_TrainerVision:
 	ld hl, MAX_RANGE_ADDRESS
 	ld b, MAX_RANGE
