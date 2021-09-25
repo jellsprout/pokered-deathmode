@@ -3186,8 +3186,10 @@ HeartFailureText:
 ExecutePlayerMove:
 	xor a
 	ld [H_WHOSETURN], a ; set player's turn
+	ld a, [wObtainedBadges]
+	and $1 ; skip heart failure check if no boulder badge because fuck brock
 	ld a, [wPlayerSelectedMove]
-	inc a
+	jr z, .continue2
 	sboptioncheck HEART_FAILURES
 	jr z, .continue2
 	call BattleRandom
@@ -3200,8 +3202,9 @@ ExecutePlayerMove:
 	ld [hli], a
 	ld [hl], a
 	call ApplyDamageToPlayerPokemon
-	xor a
+	ld a, $ff
 	.continue2
+	inc a
 	jp z, ExecutePlayerMoveDone ; for selected move = FF, skip most of player's turn
 	xor a
 	ld [wMoveMissed], a
