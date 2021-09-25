@@ -33,6 +33,11 @@ And the more technical changes:
 These are options that are only configurable immediately after you hit New Game. They are generally settings that impact the playthrough in a way that should be the same between all racers (in a speedrun race).
 
 **Preset** is a special selection which allows you to set a preconfigured set of option values based on what kind of run you want to do.
+ * Death Mode is a mode inspired by the Death Mode mod for Fire Emblem: Sacred Stones. It sets the following:
+   * No experience
+   * No prize money
+   * Spinner Hell
+   * Every turn your Pokemon has a 10% chance to faint of random heart failure
 **Player Name** and **Rival Name** are moved here to let players enter whatever names they want without losing time (assuming a standard speedrun start time of selecting "Yes" on the permanent options confirmation screen)
 
 * Start In:
@@ -92,6 +97,8 @@ These are options that are only configurable immediately after you hit New Game.
 * Rods Always Work (On/Off) - when on, fishing rods (Good Rod/Super Rod, Old Rod never failed regardless) will never say "not even a nibble!". You will always get an encounter every time you fish unless the map has no fishing encounters.
 * Boat (Normal/Meme) - try it and see, just don't report any weird looking tiles as a glitch.
 * Pokemon Pics (Normal/Green/Yellow) - select which set of Pokemon front sprites you want to use for your playthrough. This will probably be moved to be a [normal option](#normal-options) in a later release.
+* Prize Money (On/Off) - allows you to disable the money you get after winning a fight. Be warned, you still lose the money when you get defeated!
+* Heart Failures - enabling this adds a 10% chance of your Pokemon fainting for every move you make.
 
 ## Normal Options
 These are options that are configurable at any time during your playthrough, including before you start. Some are retained from the vanilla game with minor changes, others are new.
