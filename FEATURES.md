@@ -38,6 +38,7 @@ These are options that are only configurable immediately after you hit New Game.
    * No prize money
    * Spinner Hell
    * Every turn your Pokemon has a 10% chance to faint of random heart failure
+
 **Player Name** and **Rival Name** are moved here to let players enter whatever names they want without losing time (assuming a standard speedrun start time of selecting "Yes" on the permanent options confirmation screen)
 
 * Start In:
