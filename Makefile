@@ -58,7 +58,7 @@ $(shell echo "db \"-"$(shell git log -1 --format="%h")"\"" > git-revision.asm)
 
 %_red.o: dep = $(shell tools/scan_includes $(@D)/$*.asm)
 $(red-deathmode_obj): %_red.o: %.asm $$(dep)
-	$(RGBASM) -D _RED -h -o $@ $*.asm
+	$(RGBASM) -D _RED -D _VANILLAWILDS -h -o $@ $*.asm
 
 red-deathmode_opt  = -cjsv -k 01 -l 0x33 -m 0x13 -p 0 -r 03 -t "RED_SPDC" -i KAPC
 
